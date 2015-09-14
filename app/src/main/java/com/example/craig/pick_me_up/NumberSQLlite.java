@@ -47,19 +47,18 @@ public class NumberSQLlite extends SQLiteOpenHelper {
                 values);
     }
 
-    public void getphoneNumber() {
-        SQLiteDatabase db = this.getReadableDatabase();
-        String query = "Select all from "+TABLE_PHONE;
-            Cursor cursor =
-                    db.rawquery(query,null);
+    public String getphoneNumber() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "Select * from "+TABLE_PHONE;
+
+        Cursor cursor = db.rawQuery(query,null);
             if (cursor != null)
                 cursor.moveToFirst();
 
 
-            phoneNumber onlyNumber = new phoneNumber();
-            onlyNumber.setNumber();
+            phoneNumber onlyNumber = new phoneNumber(cursor.getString(0));
 
-            return onlyNUmber;
+            return onlyNumber.getNumber();
         }
     }
 
