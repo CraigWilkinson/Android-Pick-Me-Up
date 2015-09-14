@@ -60,7 +60,5 @@ public class NumberSQLlite extends SQLiteOpenHelper {
 
             return onlyNumber.getNumber();
         }
-    }
-
 }
 
