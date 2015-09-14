@@ -47,11 +47,11 @@ public class NumberSQLlite extends SQLiteOpenHelper {
                 values);
     }
 
-    public void getphoneNumber(phoneNumber number) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void getphoneNumber() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "Select all from "+TABLE_PHONE;
             Cursor cursor =
-                    db.query{TABLE_PHONE,
-
+                    db.rawquery(query,null);
             if (cursor != null)
                 cursor.moveToFirst();
 
@@ -59,8 +59,7 @@ public class NumberSQLlite extends SQLiteOpenHelper {
             phoneNumber onlyNumber = new phoneNumber();
             onlyNumber.setNumber();
 
-            // 5. return book
-            return book;
+            return onlyNUmber;
         }
     }
 

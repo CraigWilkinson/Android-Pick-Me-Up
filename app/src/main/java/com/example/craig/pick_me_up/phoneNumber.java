@@ -6,6 +6,10 @@ package com.example.craig.pick_me_up;
 public class phoneNumber {
     private String number;
 
+    public phoneNumber(String number) {
+        this.number = number;
+    }
+
     public String getNumber() {
         return number;
     }
